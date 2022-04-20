@@ -2,7 +2,8 @@
 
 
   import 'dart:io';
-  import 'package:note_app/servises/io_servise.dart';
+  import 'package:note_app/servises/data_servise.dart';
+import 'package:note_app/servises/io_servise.dart';
   import 'package:note_app/servises/io_servise.dart';
   import 'package:note_app/servises/lang_servise.dart';
   import 'package:note_app/servises/ext_servise.dart';
@@ -28,6 +29,19 @@
     // data += read();
     // file.writeAsStringSync(data);
 
+
+    DataServise dataServise = DataServise();
+    await dataServise.init();
+
+    write('password');
+    String password = read();
+    bool  result = await dataServise.storeString(key: 'password', value: 'value');
+
+    if(result){
+      writeln('password muvaffaqatli yaratildi');
+    }else{
+      writeln('Iltimos kiyen urinib kuring');
+    }
 
   }
 

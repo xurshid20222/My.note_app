@@ -11,7 +11,7 @@ void writeln<T>(T object) {
   stdout.writeln(object);
 }
 
-String read<T>(Type type) {
+String read() {
   String result = stdin.readLineSync() ?? '';
  return result;
 

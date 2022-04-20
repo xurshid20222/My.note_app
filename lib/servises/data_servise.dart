@@ -42,4 +42,16 @@ class DataServise{
     });
     return result;
   }
+
+
+ Future? readData({required String key}) async{
+    String source = await file.readAsString();
+    Map<String, dynamic> database;
+    if(source.isEmpty){
+      database = {};
+    }else{
+      database = jsonDecode(source);
+    }
+    return database[key];
+ }
 }
